@@ -40,7 +40,6 @@ Rules: Keep Exaflow metadata fetching and disabled algorithm filtering in the se
 
 Tests: Mock Exaflow responses and disabled algorithm resources for service tests.
 
-Notes: A scheduled async refresh exists in `AlgorithmService.AlgorithmAggregator`.
 
 ## `src/main/java/hbp/mip/datamodel`
 
@@ -110,21 +109,7 @@ Rules: Add new migrations instead of editing shipped migrations. Keep secret val
 
 Tests: Run migration validation against PostgreSQL for DB changes.
 
-Notes: `application.yml` contains local defaults and placeholder Keycloak values.
-
-## `config`
-
-Purpose: Container runtime config template and static runtime assets.
-
-Key files: `application.tmpl`, `disabledAlgorithms.json`.
-
-Used by: Docker image entrypoint and production/container runtime.
-
-Rules: Keep template variables aligned with documented environment configuration.
-
-Tests: For config changes, build the Docker image or validate template rendering in the deployment environment.
-
-Notes: `dockerize` renders `application.tmpl` to `/opt/config/application.yml`.
+Notes: `application.yml` contains local defaults (`${ENV:default}`) and placeholder Keycloak values. Export `MIP_VERSION` before local runs.
 
 ## `.github/workflows`
 
