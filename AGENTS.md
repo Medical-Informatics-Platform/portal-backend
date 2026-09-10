@@ -10,6 +10,7 @@ This repository contains the Spring Boot backend for the Medical Informatics Pla
 - `src/main/java/hbp/mip/datamodel`: data model API/service backed by Exaflow metadata endpoints.
 - `src/main/java/hbp/mip/experiment`: experiment API, service, repository, JPA entity, specifications, and DTOs.
 - `src/main/java/hbp/mip/user`: active user API/service, user repository, JPA entity, and DTO.
+- `src/main/java/hbp/mip/folder`: experiment folder/set API, service, repository, JPA entities, and DTOs.
 - `src/main/java/hbp/mip/utils`: shared logging, JSON/HTTP helpers, claim validation, and exception handling.
 - `src/main/resources`: local runtime config, Log4j2 config, and Flyway migrations under `db/migration`.
 - `.github/workflows`: release image publishing and EBRAINS mirror automation.
@@ -73,7 +74,7 @@ mvn clean package
 ## Architecture Rules
 - Put HTTP endpoints in `*API` classes under the owning feature package.
 - Put business logic in `*Service` classes; controllers should delegate rather than implement workflows directly.
-- Put persistence in Spring Data repositories and JPA `*DAO` entities. Current JPA packages are `hbp.mip.experiment` and `hbp.mip.user`.
+- Put persistence in Spring Data repositories and JPA `*DAO` entities. Current JPA packages are `hbp.mip.experiment`, `hbp.mip.user`, and `hbp.mip.folder` (list them in `PersistenceConfiguration` when adding another).
 - Put API/request/response shapes in `*DTO` records or DTO classes close to the feature package.
 - Put cross-cutting helpers in `hbp.mip.utils` only when they are genuinely shared.
 - Put security, persistence, OpenAPI, and web filter wiring in `hbp.mip.configurations`.
