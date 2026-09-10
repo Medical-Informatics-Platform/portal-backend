@@ -20,6 +20,10 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <java.version>21</java.version>
         <postgresql.version>42.7.12</postgresql.version>
+        <!-- Security: Boot 4.0.8 manages Tomcat 11.0.24, which carries CVE-2026-65905,
+             CVE-2026-65182 and CVE-2026-68525 (DIGEST/FORM auth bypass). 11.0.25 is the
+             first fixed 11.0.x. Drop this override when the Boot BOM catches up. -->
+        <tomcat.version>11.0.25</tomcat.version>
         <jakarta.version>3.2.0</jakarta.version>
         <hibernate.version>7.4.7.Final</hibernate.version>
         <flyway-core.version>12.7.0</flyway-core.version>
